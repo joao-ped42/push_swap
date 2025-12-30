@@ -25,21 +25,11 @@ int	ft_count_numbers(char *str)
 			i++;
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
 			n++;
-		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9') || str[i] != '-'))
+		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
 			i++;
 	}
 	return (n);
 }
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-}
-
 
 char	*ft_substr(char *s, int start, int len)
 {
@@ -61,40 +51,65 @@ char	*ft_substr(char *s, int start, int len)
 	return (sub);
 }
 
-char	**ft_split(char *str)
+int	ft_atoi(char *str)
+{
+	int	ret;
+	int	i;
+	int	sign;
+
+	ret = 0;
+	i = 0;
+	sign = 1;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '-')
+			sign = -sign;
+		ret = (ret * 10) + (str[i] - '0');
+		i++;
+	}
+	return (ret * sign);
+}
+
+char	**ft_split(char *str, int n)
 {
 	char	**ret;
 	int		start;
 	int		i;
 	int		j;
-	int		erase;
 
-	erase = ft_count_numbers(str);
-	ret = (char **)malloc(sizeof(char **) * (erase + 1));
+	ret = (char **)malloc(sizeof(char **) * (n + 1));
 	i = 0;
 	j = 0;
-	while (str[i] != '\0')
+	while (j < n)
 	{
 		while (str[i] != '\0' && !((str[i] >= '0' && str[i] <= '9') || (str[i] == '-')))
 			i++;
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
 			start = i;
-		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9') || str[i] != '-'))
+		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
 			i++;
 		ret[j] = ft_substr(str, start, (i - start));
 		j++;
 	}
-	ret[erase] = NULL;
+	ret[j] = NULL;
 	return (ret);
 }
 
-int	**ft_aatoii(char *str)
+int	*ft_split_num(char *str, int len)
 {
+	char	**split_char;
+	int		*ret;
+	int		i;
 
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	printf("%d\n", ft_count_numbers("  43 23 53  "));
+	split_char = ft_split(str, len);
+	ret = (int *)malloc(sizeof(int) * len);
+	i = 0;
+	while (i < len)
+	{
+		ret[i] = ft_atoi(split_char[i]);
+		free(split_char[i]);
+		i++;
+	}
+	free(split_char);
+	return (ret);
 }

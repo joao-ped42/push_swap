@@ -1,18 +1,11 @@
-int	ft_atoi(char *str)
+void	ft_fill_stack(int *stack, char *nums, int nmemb)
 {
-	int	ret;
 	int	i;
-	int	sign;
 
-	ret = 0;
 	i = 0;
-	sign = 1;
-	while (str[i] != '\0')
+	while (i < nmemb)
 	{
-		if (str[i] == '-')
-			sign = -sign;
-		ret = (ret * 10) + (str[i] - '0');
+		stack[i] = ft_atoi(nums[i]);
 		i++;
 	}
-	return (ret * sign);
 }
