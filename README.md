@@ -1,4 +1,4 @@
-Esse projeto foi criado para ser parte do currículo da 42 por joao-ped
+*Esse projeto foi criado para ser parte do currículo da 42 por joao-ped*
 
 # Descrição
 
