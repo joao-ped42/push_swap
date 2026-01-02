@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ft_smaller(int *stack, int len)
 {
@@ -62,4 +63,29 @@ void	ft_sort_three(int *stack, int *len)
 		ft_rra(stack, *len);
 	if (stack[0] > stack[1])
 		ft_sa(stack, *len);
+}
+
+void	ft_push_min_to_a(int *stack_a, int *stack_b, int *len_a, int *len_b, int limit)
+{
+	int	i;
+
+	i = 0;
+	while (i < limit)
+	{
+		ft_pa(stack_b, stack_a, len_b, len_a);
+		i++;
+	}
+}
+
+void	ft_sort_four_plus(int *stack_a, int *stack_b, int *len_a, int *len_b)
+{
+	int	limit;
+	int	i;
+
+	i = 0;
+	limit = *len_a - 3;
+	printf("%d\n", limit);
+	ft_top_to_push_b(stack_a, stack_b, len_a, len_b, limit);
+	ft_sort_three(stack_a, len_a);
+	ft_push_min_to_a(stack_a, stack_b, len_a, len_b, limit);
 }

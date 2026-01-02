@@ -3,7 +3,6 @@
 void	ft_push(int *stack1, int *stack2, int *len1, int *len2)
 {
 	int	i;
-	int	aux;
 
 	if (*len1 <= 0)
 		return ;

@@ -13,12 +13,13 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 char	**ft_split(char *str, int len);
 char	*ft_substr(char *s, int start, int len);
 int		*ft_aatoii(char **str, int len, int *error_check);
+void	*ft_calloc(int nmemb, int size);
 int		ft_count_numbers(char *str);
 int		ft_atoi(char *str, int *error_check);
 int		ft_split_len(char **split);
@@ -45,5 +46,6 @@ void	ft_sb(int *b, int len);
 void	ft_ss(int *a, int *b, int len_a, int len_b);
 void	ft_top_to_push_b(int *stack1, int *stack2, int *len1, int *len2, int limit);
 void	ft_sort_three(int *stack, int *len);
+void	ft_sort_four_plus(int *stack_a, int *stack_b, int *len_a, int *len_b);
 
 #endif

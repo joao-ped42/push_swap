@@ -1,27 +1,41 @@
 #include "push_swap.h"
+#include <stdio.h>
+
+int	*ft_stack_birth(int arg_count, char **args, int *check_error, int *len)
+{
+	char	**split;
+	int		*stack;
+
+	if (arg_count == 2)
+	{
+		*len = ft_count_numbers(args[1]);
+		split = ft_split(args[1], *len);
+		stack = ft_aatoii(split, *len, check_error);
+		ft_free_all(split, *len + 1);
+	}
+	else if (arg_count > 2)
+	{
+		*len = arg_count - 1;
+		args++;
+		stack = ft_aatoii(args, *len, check_error);
+	}
+	else
+	{
+		*check_error = 1;
+		return (NULL);
+	}
+	return (stack);
+}
 
 int	main(int argc, char *argv[])
 {
-	char	**splitted;
 	int		*stack_a;
 	int		check_error;
 	int		len;
-	
+
 	check_error = 0;
-	if (argc == 2)
-	{
-		len = ft_count_numbers(argv[1]);
-		splitted = ft_split(argv[1], len);
-		stack_a = ft_aatoii(splitted, len, &check_error);
-		ft_free_all(splitted, len + 1);
-	}
-	else if (argc > 2)
-	{
-		len = argc - 1;
-		argv++;
-		stack_a = ft_aatoii(argv, len, &check_error);
-	}
-	if (!stack_a)
+	stack_a = ft_stack_birth(argc, argv, &check_error, &len);
+	if (!stack_a || check_error == 1)
 	{
 		write(1, "Error\n", 6);
 		return (0);

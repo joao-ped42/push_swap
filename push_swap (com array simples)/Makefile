@@ -13,10 +13,10 @@
 NAME = push_swap.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror -I.
-SRCS = push_swap.c single_string_treatment.c make_it_int.c operations.c push.c rotate.c rev_rotate.c swap.c sorting_small.c
+SRCS = push_swap.c single_string_treatment.c make_it_int.c operations.c push.c rotate.c rev_rotate.c swap.c sorting_small.c push_swap_utils.c
 
-.o: .c
-	$(CC) $(FLAGS) -c $< -o$@
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 OBJ = $(SRCS:.c=.o)
 
@@ -32,6 +32,8 @@ fclean: clean
 	rm -f $(NAME)
 
 re:
-	make fclean 
+	make fclean
 	make
 	make clean
+
+.PHONY: all clean fclean re

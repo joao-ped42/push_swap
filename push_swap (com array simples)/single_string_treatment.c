@@ -78,13 +78,3 @@ void	ft_free_all(char **strings, int len)
 	}
 	free(strings);
 }
-
-int		ft_split_len(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i] != NULL)
-		i++;
-	return (i);
-}
