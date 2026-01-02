@@ -6,18 +6,17 @@
 #    By: joao-ped <joao-ped@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/30 02:30:30 by joao-ped          #+#    #+#              #
-#    Updated: 2025/12/30 02:31:17 by joao-ped         ###   ########.fr        #
+#    Updated: 2026/01/01 16:16:51 by joao-ped         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap.a
 CC = cc
-FLAGS = -Wall -Wextra -Werror
-SRCS = 
-HSRC = push_swap.h
+FLAGS = -Wall -Wextra -Werror -I.
+SRCS = push_swap.c single_string_treatment.c make_it_int.c operations.c push.c rotate.c rev_rotate.c swap.c sorting_small.c
 
-.c: .o
-	$(CC) $(FLAGS) -I$(HSRC) -c $< -o$@
+.o: .c
+	$(CC) $(FLAGS) -c $< -o$@
 
 OBJ = $(SRCS:.c=.o)
 
@@ -32,4 +31,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean $(NAME)
+re:
+	make fclean 
+	make
+	make clean
