@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   single_string_treatment.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joao-ped <joao-ped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 20:15:30 by joao-ped          #+#    #+#             */
+/*   Updated: 2026/01/07 20:19:48 by joao-ped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_count_numbers(char *str)
@@ -9,11 +21,13 @@ int	ft_count_numbers(char *str)
 	n = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] != '\0' && !((str[i] >= '0' && str[i] <= '9') || (str[i] == '-')))
+		while (str[i] != '\0' && !((str[i] >= '0' && str[i] <= '9')
+				|| (str[i] == '-')))
 			i++;
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
 			n++;
-		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
+		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9')
+				|| str[i] == '-'))
 			i++;
 	}
 	return (n);
@@ -53,11 +67,13 @@ char	**ft_split(char *str, int n)
 	j = 0;
 	while (j < n)
 	{
-		while (str[i] != '\0' && !((str[i] >= '0' && str[i] <= '9') || (str[i] == '-')))
+		while (str[i] != '\0' && !((str[i] >= '0' && str[i] <= '9')
+				|| (str[i] == '-')))
 			i++;
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
 			start = i;
-		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
+		while (str[i] != '\0' && ((str[i] >= '0' && str[i] <= '9')
+				|| str[i] == '-'))
 			i++;
 		ret[j] = ft_substr(str, start, (i - start));
 		j++;

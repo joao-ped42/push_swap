@@ -10,30 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
-FLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -I.
 SRCS = push_swap.c single_string_treatment.c make_it_int.c operations.c push.c rotate.c rev_rotate.c swap.c sorting_small.c push_swap_utils.c algorithms.c
-
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
-
-OBJ = $(SRCS:.c=.o)
-
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re:
-	make fclean
-	make
-	make clean
+	$(MAKE) fclean
+	$(MAKE) all
 
 .PHONY: all clean fclean re

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joao-ped <joao-ped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 20:15:22 by joao-ped          #+#    #+#             */
+/*   Updated: 2026/01/07 20:16:18 by joao-ped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_push_down(int *stack, int len)
@@ -12,7 +24,6 @@ void	ft_push_down(int *stack, int len)
 	}
 	stack[0] = 0;
 }
-#include "push_swap.h"
 
 void	ft_push_up(int *stack, int len)
 {

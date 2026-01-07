@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joao-ped <joao-ped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 20:15:12 by joao-ped          #+#    #+#             */
+/*   Updated: 2026/01/07 20:15:13 by joao-ped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	*ft_calloc(int nmemb, int size)
@@ -21,7 +33,23 @@ void	*ft_calloc(int nmemb, int size)
 	return ((void *)array);
 }
 
-int	ft_mid(int *stack)
+int	ft_biggest(int *stack, int len)
 {
-	
+	int	i;
+	int	pos;
+	int	max;
+
+	i = 1;
+	pos = 0;
+	max = stack[0];
+	while (i < len)
+	{
+		if (stack[i] > max)
+		{
+			pos = i;
+			max = stack[i];
+		}
+		i++;
+	}
+	return (pos);
 }
