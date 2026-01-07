@@ -1,36 +1,27 @@
 #include "push_swap.h"
 
-static int	ft_overflow(int nmemb, int size)
-{
-	return (size != 0 && (nmemb > (int)-1 / size));
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*ptr;
-	size_t			i;
-
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = c;
-		i++;
-	}
-	return (ptr);
-}
-
 void	*ft_calloc(int nmemb, int size)
 {
-	void		*array;
+	unsigned char		*array;
+	int					i;
 
-	if (ft_overflow(nmemb, size))
+	i = 0;
+	if (size != 0 && (nmemb > 2147483647 / size))
 		return (NULL);
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	array = malloc(nmemb * size);
 	if (!array)
 		return (NULL);
-	ft_memset(array, 0, (size * nmemb));
-	return (array);
+	while (i < (size * nmemb))
+	{
+		array[i] = 0;
+		i++;
+	}
+	return ((void *)array);
+}
+
+int	ft_mid(int *stack)
+{
+	
 }

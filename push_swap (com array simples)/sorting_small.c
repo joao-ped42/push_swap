@@ -43,6 +43,8 @@ void	ft_top_to_push_b(int *stack1, int *stack2, int *len1, int *len2, int limit)
 			while (stack1[0] != min_val)
 				ft_rra(stack1, *len1);
 		}
+		if (ft_is_sorted(stack1, *len1) == 0)
+			break ;
 		ft_pb(stack1, stack2, len1, len2);
 		i++;
 	}
@@ -80,11 +82,8 @@ void	ft_push_min_to_a(int *stack_a, int *stack_b, int *len_a, int *len_b, int li
 void	ft_sort_four_plus(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
 	int	limit;
-	int	i;
 
-	i = 0;
 	limit = *len_a - 3;
-	printf("%d\n", limit);
 	ft_top_to_push_b(stack_a, stack_b, len_a, len_b, limit);
 	ft_sort_three(stack_a, len_a);
 	ft_push_min_to_a(stack_a, stack_b, len_a, len_b, limit);

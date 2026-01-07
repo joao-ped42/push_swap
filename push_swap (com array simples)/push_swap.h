@@ -6,7 +6,7 @@
 /*   By: joao-ped <joao-ped@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 01:50:24 by joao-ped          #+#    #+#             */
-/*   Updated: 2026/01/01 16:07:19 by joao-ped         ###   ########.fr       */
+/*   Updated: 2026/01/05 01:20:50 by joao-ped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 
 char	**ft_split(char *str, int len);
 char	*ft_substr(char *s, int start, int len);
-int		*ft_aatoii(char **str, int len, int *error_check);
 void	*ft_calloc(int nmemb, int size);
+int		*ft_aatoii(char **str, int len, int *error_check);
 int		ft_count_numbers(char *str);
 int		ft_atoi(char *str, int *error_check);
 int		ft_split_len(char **split);
 int		ft_conversion(char *str, int *error, int index, int sign);
 int		ft_duplicated(int *n, int len);
+int		ft_is_sorted(int *stack, int len);
 int		ft_smaller(int *stack, int len);
 void	ft_free_all(char **strings, int len);
 void	ft_push(int *stack1, int *stack2, int *len1, int *len2);
@@ -47,5 +48,6 @@ void	ft_ss(int *a, int *b, int len_a, int len_b);
 void	ft_top_to_push_b(int *stack1, int *stack2, int *len1, int *len2, int limit);
 void	ft_sort_three(int *stack, int *len);
 void	ft_sort_four_plus(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	ft_turk_sort(int *stack_a, int *stack_b, int *len_a, int *len_b);
 
 #endif

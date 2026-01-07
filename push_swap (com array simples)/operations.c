@@ -1,12 +1,23 @@
 #include "push_swap.h"
 
-void	ft_push(int *stack1, int *stack2, int *len1, int *len2)
+int		ft_is_sorted(int *stack, int len)
 {
 	int	i;
 
+	i = 0;
+	while (i < len && i + 1 < len)
+	{
+		if (stack[i] > stack[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	ft_push(int *stack1, int *stack2, int *len1, int *len2)
+{
 	if (*len1 <= 0)
 		return ;
-	i = 0;
 	ft_push_down(stack2, *len2);
 	stack2[0] = stack1[0];
 	ft_push_up(stack1, *len1);

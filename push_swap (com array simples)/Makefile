@@ -6,14 +6,14 @@
 #    By: joao-ped <joao-ped@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/30 02:30:30 by joao-ped          #+#    #+#              #
-#    Updated: 2026/01/01 16:16:51 by joao-ped         ###   ########.fr        #
+#    Updated: 2026/01/05 00:44:27 by joao-ped         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror -I.
-SRCS = push_swap.c single_string_treatment.c make_it_int.c operations.c push.c rotate.c rev_rotate.c swap.c sorting_small.c push_swap_utils.c
+SRCS = push_swap.c single_string_treatment.c make_it_int.c operations.c push.c rotate.c rev_rotate.c swap.c sorting_small.c push_swap_utils.c algorithms.c
 
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
